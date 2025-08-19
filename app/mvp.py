@@ -17,15 +17,20 @@ Test quick:
   curl 'http://127.0.0.1:5000/api/messages/s1?limit=10&offset=0'
 """
 # from __future__ import annotations
-# import json
+import json
 import sqlite3
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
 from flask import Flask, jsonify, request
 
+def load_config(path="config.json"):
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+CONFIG = load_config()
 DB_PATH = "app.db"
-PROFANITY_LIST = {"foo", "bar", "badword"}  # TODO: REEMPLAZAR
+PROFANITY_LIST = CONFIG["blocked_words"] 
 
 app = Flask(__name__)
 

@@ -1,0 +1,7 @@
+{
+  "blocked_words": [
+    "foo",
+    "bar",
+    "badword"
+  ]
+}
