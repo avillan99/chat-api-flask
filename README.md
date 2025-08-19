@@ -12,7 +12,23 @@ API REST mínima en Flask + SQLite para almacenar y consultar mensajes de chat p
 ### Requisitos
 - Python 3.12.x (Probado)
 - pip
-
+### Configuración de palabras bloqueadas
+Este proyecto utiliza un archivo `config.json` para definir las palabras que deben ser filtradas.
+#### Ejemplo de `config.json`:
+```json
+{
+  "blocked_words": [
+    "foo",
+    "bar",
+    "badword"
+  ]
+}
+```
+#### Cómo agregar nuevas palabras
+1. Abra el archivo config.json.
+2. Edite la lista blocked_words.
+3. Guarde los cambios.  
+Las palabras que agregue serán tomadas automáticamente por la aplicación en la próxima ejecución.  
 ### Pasos para ejecutar la API (Localmente)
 1. Crear entorno virtual (Luego de clonar el repositorio):  
 ~~~
@@ -43,7 +59,6 @@ python -m app.mvp
 ~~~
 http://127.0.0.1:5000/
 ~~~
-
 ## Documentación de la API
 ### Health
 #### Get `/` 
@@ -58,7 +73,7 @@ Devuelve { "ok": true, "time": "<ISO8601>" } para ver si el servicio está vivo.
 * timestamp: string en formato ISO 8601 con zona horaria (ej. 2025-08-17T20:00:00Z o +00:00).  
 * sender: string, uno de user o system.  
 ##### Respuesta 201 (success):
-~~~
+```json
 {
   "status": "success",
   "data": {
@@ -74,7 +89,7 @@ Devuelve { "ok": true, "time": "<ISO8601>" } para ver si el servicio está vivo.
     }
   }
 }
-~~~
+```
 ##### Errores:
 * 400 INVALID_JSON cuando el cuerpo no es JSON válido.  
 * 400 INVALID_FORMAT cuando falta un campo o tiene formato inválido (por ejemplo timestamp sin zona). error.details es un string con el detalle.  
@@ -131,7 +146,7 @@ curl "http://127.0.0.1:5000/api/messages/s1?sender=user&limit=10&offset=0"
 ## Instrucciones para pruebas:
 1. Ejecutar pruebas unitarias y de integración:  
 ~~~
-pytest -q
+pytest
 ~~~
 2. Ejecutar con cobertura (umbral 80%):  
 ~~~
