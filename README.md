@@ -53,7 +53,8 @@ pip install -r requirements.txt
 ~~~
 4. Ejecutar la API:
 ~~~
-python -m app.mvp
+export FLASK_APP=app:create_app
+flask run
 ~~~
 5. Base URL por defecto(Local):
 ~~~
@@ -153,4 +154,4 @@ pytest
 pytest --cov=app --cov-report=term-missing --cov-fail-under=80
 ~~~
 ### Notas:
-* Las pruebas con Pytest usan una base de datos temporal para no afectar la BD productiva (app.db)
+* Las pruebas con Pytest usan una base de datos temporal
