@@ -51,11 +51,22 @@ python -m venv .venv
 ~~~
 pip install -r requirements.txt
 ~~~
-4. Ejecutar la API:
-~~~
-export FLASK_APP=app:create_app
-flask run
-~~~
+4. Ejecutar la API:  
+      **Linux/macOS**:  
+      ~~~
+      export FLASK_APP=app:create_app
+      flask run
+      ~~~  
+      **Windows(CMD)**:  
+      ```
+      set FLASK_APP=app:create_app
+      flask run
+      ````
+      **Windows(PowerShell)**:  
+      ~~~
+      $env:FLASK_APP = "app:create_app"
+      flask run
+      ~~~
 5. Base URL por defecto(Local):
 ~~~
 http://127.0.0.1:5000/
