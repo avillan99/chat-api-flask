@@ -1,0 +1,28 @@
+#PLANTILLA OFICIAL PYTHON: https://github.com/github/gitignore/blob/main/Python.gitignore
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+
+# Entorno virtual
+.venv/
+venv/
+
+# Logs
+*.log
+
+# Archivos temporales de editores
+.vscode/
+.idea/
+
+# Archivos de pruebas
+.pytest_cache/
+.coverage
+
+# Base de datos SQLite
+*.db
+*.sqlite
