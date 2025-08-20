@@ -158,11 +158,11 @@ curl "http://127.0.0.1:5000/api/messages/s1?sender=user&limit=10&offset=0"
 ## Instrucciones para pruebas:
 1. Ejecutar pruebas unitarias y de integración:  
 ~~~
-pytest
+python -m pytest
 ~~~
 2. Ejecutar con cobertura (umbral 80%):  
 ~~~
-pytest --cov=app --cov-report=term-missing --cov-fail-under=80
+python -m pytest --cov=app --cov-report=term-missing --cov-fail-under=80 --cov-branch
 ~~~
 ### Notas:
 * Las pruebas con Pytest usan una base de datos temporal
